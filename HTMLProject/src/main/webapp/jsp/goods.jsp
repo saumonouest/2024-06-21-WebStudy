@@ -18,7 +18,7 @@
 			s=s.substring(0,25)+"...";
 			vo.setName(s);
 		}
-		vo.setName(s);
+		vo.setName(s); 
 	}
 	request.setAttribute("list",list);
 %>
