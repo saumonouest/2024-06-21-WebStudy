@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+	<h1>회원가입</h1>
+	<table width="500" border="1" bordercolor="gray" cellspacing="0" cellpadding="0">
+		<tr>
+			<th width="30%"><label for="ID">ID</label></th>
+			<td width="70%">
+				<input type="text" size="15" placeholder="아이디">
+				<input type="submit" size="5" value="ID 중복체크">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="password">password</label></th>
+			<td width="70%"><input type="password" size="15" placeholder="영문 숫자 조합">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="name">이름</label></th>
+			<td width="70%"><input type="text" id="name" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="sex">성별</label></th>
+			<td width="70%"><input type="radio" checked name="sex">남자
+							<input type="radio" name="sex"> 여자
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="birth">생년월일</label></th>
+			<td width="70%"><input type="date" id="birth" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="email">이메일</label></th>
+			<td width="70%"><input type="text" id="email" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="post">우편번호</label></th>
+			<td width="70%"><input type="text" id="post" size="15">
+			<input type="submit" size="5" value="우편번호 검색">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="addr">주소</label></th>
+			<td width="70%"><input type="text" id="addr" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="addr1">상세주소</label></th>
+			<td width="70%"><input type="text" id="addr1" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="tel">전화번호</label></th>
+			<td width="70%">
+				<select>
+					<option>010</option>
+					<option>011</option>
+					<option>016</option>
+					<option>017</option>
+				</select>
+				<input type="text" size="15">
+			</td>
+		</tr>
+		<tr>
+			<th width="30%"><label for="content">소개</label></th>
+			<td width="70%">
+			<textarea rows="15" cols="70"></textarea>
+			</td>
+		</tr>
+		</table>
+		<tr>
+			<th width="30%"></th>
+			<td width="70%">
+				<input type="submit" value="회원가입">
+				<input type="button" value="취소">
+			</td>
+		</tr>
+	</center>
+		
+</body>
+</html>
