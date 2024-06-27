@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	a{
+		display: block;
+		color: gray;
+		text-decoration: none;
+	}
+	a:hover{
+		color: steelblue;
+		text-decoration: underline;
+	}
+	img{
+		width: 150px;
+		height: 200px;
+	}
+	img:hover{
+		cursor:pointer; /* hand-cursor : 링크 */
+		border:1px solid orangered; /* 테두리 : solid : 일반 라인선 dashed, dotted */
+		opacity: 0.3; /* 투명 0.0 ~ 1.0 */
+	}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('img').click(function(){
+			alert("이미지 선택")
+		})
+	})
+</script>
+</head>
+<body>
+	<a href="#">'얼차려 사망' 중대장·부중대장 구속송치…훈련규정 위반 </a>
+	<a href="#">"해외 북한노동자 자정까지 일하고 월 50∼150달러 손에 쥔다"</a>
+	<a href="#">공수처 '이재명 피습현장 물청소' 부산 강서경찰서 압수수색</a>
+	<img src="m1.jpg">
+	<img src="m2.jpg">
+	<img src="m3.jpg">
+	<img src="m4.jpg">
+	<img src="m5.jpg">
+	<img src="m6.jpg">
+	<img src="m7.jpg">
+	
+</body>
+</html>
