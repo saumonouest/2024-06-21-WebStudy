@@ -1,0 +1,62 @@
+<!-- 
+	1. 단위
+		px / % / em
+		   백분율 단위 / 배수 단위
+		   
+	2. 색상 단위
+		background-color : red
+		background-color : rgb(255,255,255)
+		background-color : #FOF(255,0,255)
+		
+	3. URL 단위
+		background:url('경로명')
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p:nth-child(1){
+		background-color: gray;
+	}
+	p:nth-child(2){
+		/*font-size: 100%;*/
+		font-size: 1.0em;
+		background-color: rgb(128, 128, 128);
+	}
+	p:nth-child(3){
+		/*font-size: 150%;*/
+		font-size: 1.5em;
+		background-color: rgb(128,150,128);
+	}
+	p:nth-child(4){
+		/*font-size: 200%;*/
+		font-size: 2.0em;
+		background-color:  rgb(150, 150, 150);
+	}
+	div{
+		width: 500px;
+		height: 500px;
+		background-image: url('icon.png');
+		background-repeat: no-repeat;/*반복하지 않는다*/
+		/*background-size: cover;*/
+		background-size: width=500px height=500px;
+	}
+	h1{
+		color: whitesmoke;
+		padding-left: 100px;
+		padding-top: 250px;
+	}
+</style>
+</head>
+<body>
+	<p>숲의 이야기를 가득 심은 집, 아페르 한강</p>
+	<p>매일이 특별한 품격의 공간 아페르한강</p>
+	<p>이상의 모든 순간을 예우하는 프라이빗 서비스 아페르한강</p>
+	<p>세상이 동경하던 풍경을 담은 집, 아페르 한강</p>
+	<div>
+		<h1>Hello Background</h1>
+	</div>
+</body>
+</html>

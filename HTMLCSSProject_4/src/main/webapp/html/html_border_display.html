@@ -1,0 +1,93 @@
+<!-- 
+	1. display
+		none / block / inline / inline-block(width, height)
+		table / table-row / table-col
+		
+	2. border
+		border-width / border-style / border-color
+		=> border-top-width(style,color)
+		   border-bottom-width(style,color)
+		   border-left-width(style,color)
+		   border-right-width(style,color)
+		   =================================
+		   border-collapse : 라인선 통합
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- css 파일 읽기 = 파일 : 외부 css (재사용, 공통 적용) -->
+<link red="stylesheet" href="table.css">
+<style>
+	.table_content{
+		margin:0px auto;
+	}
+	h1{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<h1>자유 게시판</h1>
+	<table class="table_content" width="800">
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>이름</th>
+			<th>작성일</th>
+			<th>조회수</th>
+		</tr>
+		<tr class="dataTr">
+			<td class="tdcenter">1</td>
+			<td><a href="#">CSS 테이블 디자인</a></td>
+			<td class="tdcenter">서연우</td>
+			<td class="tdcenter">2024/07/01</td>
+			<td class="tdcenter">31</td>
+		</tr>
+		<tr class="dataTr">
+			<td class="tdcenter">1</td>
+			<td><a href="#">34살에 귀여월 수 있는 이유</a></td>
+			<td class="tdcenter">이다훈</td>
+			<td class="tdcenter">2024/07/01</td>
+			<td class="tdcenter">821</td>
+		</tr>
+		<tr class="dataTr">
+			<td class="tdcenter">1</td>
+			<td><a href="#">이다훈 바보 메롱</a></td>
+			<td class="tdcenter">서사케</td>
+			<td class="tdcenter">2024/07/01</td>
+			<td class="tdcenter">331</td>
+		</tr>
+		
+	</table>
+	<table class="table_content" width="800">
+		<tr>
+			<td class="tdleft">
+				<select>
+					<option>이름</option>
+					<option>제목</option>
+					<option>내용</option>
+				</select>&nbsp;
+				<input type="text" size="15">
+				<button>검색</button>
+			</td>
+			<td class="tdright">
+				<button>이전</button>
+				1page / 10 pages
+				<button>다음</button>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
