@@ -1,0 +1,57 @@
+<!-- 
+	지정된 영역을 벗어나는 경우
+	=> hidden / scroll
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body > div{
+		width: 400px;
+		height: 100px;
+		position: relative;
+		border: 2px solid midnightblue;
+		/* overflow: hidden; */
+		overflow-y: scroll;
+	}
+	.d{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+	}
+	.a{
+		background-color: plum;
+		left: 10px;
+		top: 10px;
+		z-index: 100;
+	}
+	.b{
+		background-color: mediumseagreen;		
+		left: 50px;
+		top: 50px;
+		z-index: 10;
+	}
+	.c{
+		background-color: cornflowerblue;
+		left: 90px;
+		top: 90px;
+		z-index: 1;
+	}
+</style>
+</head>
+<body>
+	<h1>
+		At least 9 dead in central Seoul car accident: reports
+	</h1>
+	<div>
+		<div class="a d"></div>
+		<div class="b d"></div>
+		<div class="c d"></div>
+	</div>
+	<h1>
+		S. Korea to create new deputy PM post for population planning
+	</h1>
+</body>
+</html>
