@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+	.container{
+		width: 960px;
+		height: 768px;
+		border: 2px solid palevioletred;
+		margin-top: 50px;
+	}
+	.container-fluid{
+		height: 768px;
+		border: 2px solid royalblue;
+	}
+	.row{
+		background-color: darkcyan;
+		border: 2px solid navy;
+		height: 300px;
+	}
+	/*  
+		화면 분할 
+		col-sm-숫자
+		lg
+		sm
+		md
+		xs
+		등분 => 12개 초과하면 안 됨
+		col-sm-6 col-sm-6 이렇게 합쳐서 12가 되게 나눠야 됨
+	*/
+	.col-sm-6{
+		border: 2px solid orangered;
+		height: 300px;
+	}
+	.col-sm-4{
+		border: 2px solid darkmagenta;
+		height: 300px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			
+		</div>
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6"></div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+</body>
+</html>
