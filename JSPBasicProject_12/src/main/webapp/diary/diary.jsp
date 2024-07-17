@@ -144,8 +144,11 @@ function change(){
 		  				if(k>0){
 		  			%>
 		  			 		<center>
+		  			 		<a href="diary_list.jsp?year=<%=year%>&month=<%=month%>&day=<%=i%>">
 		  			 		 <img src="memo.png" title="일정이 <%=k %>개 있습니다"
-		  			 		 style="width:35px; height:35px">
+		  			 		 style="width:35px; height:35px"
+		  			 		 >
+		  			 		 </a>
 		  			 		</center>
 		  			<%	
 		  				}
