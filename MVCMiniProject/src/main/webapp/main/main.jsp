@@ -17,7 +17,7 @@
 
 </head>
 <body id="top">
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include> 
 <jsp:include page="${main_jsp }"></jsp:include>
 <jsp:include page="footer.jsp"></jsp:include>
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
@@ -27,6 +27,5 @@
 <script src="../layout/scripts/jquery.backtotop.js"></script> 
 <script src="../layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="../layout/scripts/jquery.flexslider-min.js"></script>
-<script src='https://code.jquery.com/jquery-1.11.2.min.js'>
 </body>
 </html>

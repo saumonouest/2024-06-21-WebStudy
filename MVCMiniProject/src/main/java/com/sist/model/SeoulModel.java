@@ -1,37 +1,32 @@
 package com.sist.model;
-import java.util.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.sist.controller.*;
-import com.sist.dao.*;
-import com.sist.vo.*;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import com.sist.controller.RequestMapping;
 
 public class SeoulModel {
-	@RequestMapping("seoul/list.do")
-	public String seoul_list(HttpServletRequest request, HttpServletResponse response) {
-		String page=request.getParameter("page");
-		if(page==null)
-			page="1";
-		
-		int curpage=Integer.parseInt(page);
-		SeoulDAO dao = SeoulDAO.newInstance();
-		List<LocationVO> list = dao.seoulListData(curpage);
-		int totalpage=dao.seoulTotalPage();
-		
-		final int BLOCK=10;
-		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
-		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
-		   
-		if(endPage>totalpage)
-			endPage=totalpage;
-
-		request.setAttribute("list", list);
-		request.setAttribute("curpage", curpage);
-		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
-		
-		request.setAttribute("main_jsp", "..seoul.list.jsp");
-		return "../main/main.jsp";
-	}
+	   @RequestMapping("seoul/weather.do")
+	   // timeout(10000).validateTLSCertificates(false)
+	   public String seoul_weather(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   System.out.println(1);
+		   String html="";
+		   try
+		   {
+			   Document doc=Jsoup.connect("http://korean.visitseoul.net/weather").get();
+			   Element elem=doc.selectFirst("section#content");
+			   String data=elem.html();
+			   data=data.replace("src=\"", "src=\"http://korean.visitseoul.net");
+			   System.out.println(data);
+			   html=data;
+		   }catch(Exception ex) {ex.printStackTrace();}
+		   request.setAttribute("html", html);
+		   request.setAttribute("main_jsp", "../seoul/weather.jsp");
+		   return "../main/main.jsp";
+	   }
 }
