@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 클래스 등록 / SQL 문장 등록 
+	 스프링	   MyBatis
+	 XML은 단점 : 태그가 사용자 정의
+	 			문법이 엄격하다 
+	 			= 반드시 루트는 한 개만 사용이 가능 = 트리형태의 구조를 가지고 있음
+	 			<a>
+	 			</a>
+	 			<b>
+	 			</b> => 오류
+	 			
+	 			<c>
+	 			 <a></a>
+	 			 <b></b>
+	 			</c>
+	 			
+	 			=> 순서가 명확해야 한다
+	 			<a><b><c></b></c></a> => 오류
+	 			<a><b><c></c></b></a> : 소속 관계가 명확
+	 			=> <br> : <br/>
+	 			
+	 			=> 속성값을 처리 => ""
+	 			=================================== Vue, React => JSX (JavaScript+XML)
+	
+	  
+-->
+<beans>
+	<bean id="list.do" class="com.sist.model.ListModel"/>
+	<bean id="insert.do" class="com.sist.model.ListModel"/>
+	<bean id="update.do" class="com.sist.model.ListModel"/>
+	<bean id="delete.do" class="com.sist.model.ListModel"/>
+	<bean id="find.do" class="com.sist.model.FindModel"/>
+</beans>
