@@ -42,29 +42,39 @@ public class recipeDAO {
    }
    // 기능 
    /*
-    *       CNO           NOT NULL NUMBER        
-         NAME          NOT NULL VARCHAR2(200) 
-         BRAND         NOT NULL VARCHAR2(200) 
-         DELIVERY               VARCHAR2(30)  
-         PRICE                  VARCHAR2(700) 
-         POSTER        NOT NULL VARCHAR2(260) 
-         DETAIL_POSTER NOT NULL VARCHAR2(260) 
+       RNO           NOT NULL NUMBER         
+      HIT                    NUMBER         
+      ID                     VARCHAR2(4000) 
+      NAME          NOT NULL VARCHAR2(4000) 
+      SUBNAME                VARCHAR2(4000) 
+      AMOUNT                 VARCHAR2(4000) 
+      TIME                   VARCHAR2(4000) 
+      GRADE                  VARCHAR2(4000) 
+      INGREDIENTS   NOT NULL VARCHAR2(4000) 
+      STEPS         NOT NULL VARCHAR2(4000) 
+      POSTER        NOT NULL VARCHAR2(4000) 
+      DETAIL_POSTER NOT NULL VARCHAR2(4000) 
     */
    public void cgoodsInsert(recipeVO vo)
    {
       try
       {
          getConnection();
-         String sql="INSERT INTO camp_goods(cno,gname,brand,price,saleprice,origin,poster,detail_poster) "
-                 +"VALUES(cg_cno_seq.nextval,?,?,?,?,?,?,?)";
+         String sql="INSERT INTO recipe(rno,hit, id,name,subname,amount,time,grade,ingredients,steps,poster,detail_poster) "
+                 +"VALUES(re_cno_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
          ps=conn.prepareStatement(sql);
-         ps.setString(1,vo.getGname() );
-         ps.setString(2, vo.getBrand());
-         ps.setString(3, vo.getPrice());
-         ps.setString(4, vo.getSaleprice());
-         ps.setString(5, vo.getOrigin());
-         ps.setString(6, "http:"+vo.getPoster());
-         ps.setString(7, vo.getDetail_poster());
+         ps.setInt(1,vo.getRno() );
+         ps.setInt(2, vo.getHit());
+         ps.setString(3, vo.getId());
+         ps.setString(4, vo.getName());
+         ps.setString(5, vo.getSubname());
+         ps.setString(6, vo.getAmount());
+         ps.setString(7, vo.getTime());
+         ps.setString(8, vo.getGrade());
+         ps.setString(9, vo.getIngredients());
+         ps.setString(10, vo.getSteps());
+         ps.setString(11, "http:"+vo.getPoster());
+         ps.setString(12, vo.getDetail_poster());
          
          ps.executeUpdate();
       }catch(Exception ex)

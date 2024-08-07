@@ -11,8 +11,8 @@ import org.jsoup.select.Elements;
 
 public class main {
    public static void main(String[] args) {
-      main cg = new main();
-      cg.campgoodsData();
+      main re = new main();
+      re.campgoodsData();
    }
 
    public void campgoodsData() {
@@ -21,8 +21,8 @@ public class main {
       try {
          int k = 1;
          for (int i = 1; i <= 347; i++) {
-            Document doc = Jsoup.connect("https://ogcamping.com/product/list.html?cate_no=594&page=" + i).get();
-            Elements link1 = doc.select("ul.prdList  li.item  div.box a ");
+            Document doc = Jsoup.connect("https://www.10000recipe.com/recipe/list.html?order=reco&page=" + i).get();
+            Elements link1 = doc.select("ul.common_sp_list_ul  li.common_sp_list_li  div.common_sp_caption_tit a ");
             for (int j = 0; j < link1.size(); j++) {
                try {
                   
@@ -36,9 +36,9 @@ public class main {
                   DETAIL_POSTER
                    */
                
-                String url = "http://ogcamping.com/"+link1.get(j).attr("href");
+                String url = "https://www.10000recipe.com//"+link1.get(j).attr("href");
                  if(j>0 && (j<link1.size()-1)) {
-                     String prevurl = "http://ogcamping.com/"+link1.get(j-1).attr("href");
+                     String prevurl = "https://www.10000recipe.com/"+link1.get(j-1).attr("href");
                      if(url.equals(prevurl)) continue;
                  }
                  
@@ -84,13 +84,17 @@ public class main {
                     String origin=brandsArray[2];
                     System.out.println(origin);
                     System.out.println("=======================================");
-                    //cno,gname,brand,price,saleprice,origin,poster,detail_poster
+                    //rno, hit, id, name, subname, amount, time, grade, ingredients, steps, poster, detail_poster
                     recipeVO vo = new recipeVO();
-                    vo.setGname(gname.text());
-                    vo.setBrand(brand);
-                    vo.setPrice(price.text());
-                    vo.setSaleprice(saleprice.text());
-                    vo.setOrigin(origin);
+                    vo.setRno(.text());
+                    vo.setId(brand);
+                    vo.setName(price.text());
+                    vo.setSubname(saleprice.text());
+                    vo.setAmount(origin);
+                    vo.setTime(origin);
+                    vo.setGrade(origin);
+                    vo.setIngredients(origin);
+                    vo.setSteps(dposter);
                     vo.setPoster(poster.attr("src"));
                     vo.setDetail_poster(dposter);
                     

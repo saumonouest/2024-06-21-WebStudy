@@ -22,7 +22,7 @@ public class BoardDAO {
 			String sql ="SELECT no, subject, name, TO_CHAR(regdate,'YYYY-MM-DD'),hit, num "
 					+"FROM(SELECT no, subject, name, regdate, hit, rownum as num "
 					+"FROM(SELECT no, subject, name, regdate, hit "
-					+"FROM board ORDER BY no DESC)) "
+					+"FROM project_board ORDER BY no DESC)) "
 					+"WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
 			int rowSize=10;
