@@ -22,29 +22,25 @@ public class main {
          int k = 1;
          for (int i = 1; i <= 347; i++) {
             Document doc = Jsoup.connect("https://www.10000recipe.com/recipe/list.html?order=reco&page=" + i).get();
-            Elements link1 = doc.select("ul.common_sp_list_ul  li.common_sp_list_li  div.common_sp_caption_tit a ");
-            for (int j = 0; j < link1.size(); j++) {
+            Elements link = doc.select("ul.common_sp_list_ul  li.common_sp_list_li  div.common_sp_caption_tit a ");
+            for (int j = 0; j < link.size(); j++) {
                try {
-                  
-                  /*
-                   *    CNO                  
-                  NAME           
-                  BRAND          
-                  DELIVERY                
-                  PRICE                  
-                  POSTER        
-                  DETAIL_POSTER
-                   */
-               
-                String url = "https://www.10000recipe.com//"+link1.get(j).attr("href");
-                 if(j>0 && (j<link1.size()-1)) {
-                     String prevurl = "https://www.10000recipe.com/"+link1.get(j-1).attr("href");
+                System.out.println(link.get(j).attr("href"));
+                System.out.println("레시피번호 : " + k++);
+                String url = "https://www.10000recipe.com//"+link.get(j).attr("href");
+                
+                
+                // 상세보기로 이동
+                // <li class="aa bb cc dd">
+                Document doc2=Jsoup.connect(url).get();
+                Element poster=doc2.selectFirst("div.common_sp_thumb a.common_sp_link img");
+                 if(j>0 && (j<link.size()-1)) {
+                     String prevurl = "https://www.10000recipe.com/"+link.get(j-1).attr("src");
                      if(url.equals(prevurl)) continue;
                  }
                  
                   System.out.println(url);
                   //System.out.println(link1);
-                  System.out.println("상품번호 : " + k++);
 
 //                  // 링크
 //                  // 상세보기로 이동

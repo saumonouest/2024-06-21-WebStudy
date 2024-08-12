@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.food-mapper">
+ <select id="foodListData" resultType="FoodVO" parameterType="hashmap">
+ 	SELECT fno, name, poster, num
+ 	FROM (SELECT fno, name, poster, rownum as num
+ 	FROM (SELECT /*+ INDEX_ASC(project_food_house fh_fno_pk)*/fno, name, poster 
+ 	FROM project_food_house))
+ 	WHERE num BETWEEN #{start} AND #{end}
+ </select>
+ <select id="foodTotalPage" resultType="int">
+    SELECT CEIL(COUNT(*)/20.0) FROM project_food_house
+  </select>
+  <select id="foodDetailData" resultType="FoodVO" parameterType="int">
+    SELECT fno,name,type,phone,address,score,theme,poster,images,time,parking,
+    content
+    FROM project_food_house
+    WHERE fno=#{fno}
+  </select>
+  <select id="foodFindListData" resultType="FoodVO" parameterType="hashmap">
+    SELECT fno,name,poster,num
+    FROM (SELECT fno,name,poster,rownum as num 
+    FROM (SELECT /*+ INDEX_ASC(project_food_house fh_fno_pk)*/fno,name,poster 
+    FROM project_food_house WHERE address LIKE '%'||#{ss}||'%'))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="foodFindTotalPage" resultType="int">
+    SELECT CEIL(COUNT(*)/20.0) FROM project_food_house
+    WHERE address LIKE '%'||#{ss}||'%'
+  </select>
+</mapper>

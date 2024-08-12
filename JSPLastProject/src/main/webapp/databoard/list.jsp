@@ -51,15 +51,31 @@
 	     </tr>
 	     <c:set var="count" value="${count-1 }"/>
      </c:forEach>
+    </table>
+    <table class="table">
      <tr>
-      <td colspan="5" class="text-center">
+      <td class="text-left inline">
+      <form method="post" action="../databoard/find.do">
+       <input type="checkbox" value="N" name="fs">이름
+       <input type="checkbox" value="S" name="fs">제목
+       <input type="checkbox" value="C" name="fs">내용
+       
+       <!-- Search:<select name="fs">
+         <option value="name">이름</option>
+         <option value="subject">제목</option>
+         <option value="content">내용</option>
+       </select>-->
+       <input type=text name=ss size=15 class="input-sm">
+       <input type=submit value="검색" class="btn btn-sm btn-success">
+       </form>
+      </td>
+      <td class="text-right">
        <a href="#" class="btn btn-sm btn-success">이전</a>
        ${curpage } page / ${totalpage } pages
        <a href="#" class="btn btn-sm btn-info">다음</a>
       </td>
      </tr>
     </table>
-    
    </div>
   </main>
 </div>
