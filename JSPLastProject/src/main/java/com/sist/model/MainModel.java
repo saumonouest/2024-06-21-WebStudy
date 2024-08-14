@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sist.commons.CommonsModel;
 import com.sist.controller.RequestMapping;
 import java.util.*;
 import com.sist.dao.*;
@@ -32,14 +33,23 @@ public class MainModel {
 	    List<FoodVO> likeList=FoodDAO.foodLikeTopData();
 	    List<FoodVO> jjimList=FoodDAO.foodJjimTopData();
 	    
+	    /*
+	     * footer에 공지사항 출력
+	     */
+	    List<NoticeVO> footNlist=NoticeDAO.noticeTop5Data();
+	    request.setAttribute("footNList", footNlist);
+	    
+	    CommonsModel.footerPrint(request);
 	    request.setAttribute("cookieList", cookieList);
 	    request.setAttribute("hitList", hitList);
 	    request.setAttribute("likeList", likeList);
 	    request.setAttribute("jjimList", jjimList);
 	    
 	    request.setAttribute("main_jsp", "../main/home.jsp");
+	    CommonsModel.footerPrint(request);
 	    return "../main/main.jsp";
   }
+
 }
 
 

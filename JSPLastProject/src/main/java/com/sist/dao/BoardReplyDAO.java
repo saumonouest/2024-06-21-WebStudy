@@ -103,7 +103,7 @@ public class BoardReplyDAO {
 		  session.update("replyUpdate",vo);
 	  }catch(Exception ex)
 	  {
-		  ex.printStackTrace(); 
+		  ex.printStackTrace();
 	  }
 	  finally
 	  {

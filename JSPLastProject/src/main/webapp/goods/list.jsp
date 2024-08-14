@@ -17,7 +17,7 @@
           <header class="heading">${title }</header>
           <ul class="nospace clear">
            <c:forEach var="vo" items="${gList }" varStatus="s">
-            <li class="one_quarter ${ s.index%4==0?'first':''}"><a href="../goods/detail.do?no=${vo.no }&cno${cno}"><img src="${vo.goods_poster }" title="${vo.goods_name }"></a></li>
+            <li class="one_quarter ${ s.index%4==0?'first':''}"><a href="../goods/detail.do?no=${vo.no }&cno=${cno}"><img src="${vo.goods_poster }" title="${vo.goods_name }"></a></li>
            </c:forEach>
           </ul>
         </figure>
@@ -33,7 +33,7 @@
            </c:forEach>
            
           <c:if test="${endPage<totalpage }">
-           <li><a href="../food/list.do?page=${endPage+1}&cno=${cno}">Next &raquo;</a></li>
+           <li><a href="../goods/list.do?page=${endPage+1}&cno=${cno}">Next &raquo;</a></li>
           </c:if>
           <%-- endPage = 10 20 30.. --%>
         </ul>

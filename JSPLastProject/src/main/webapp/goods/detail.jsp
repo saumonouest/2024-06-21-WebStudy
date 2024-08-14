@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<style type="text/css">
+<!-- <style type="text/css">
 #h3{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
-</style>
+</style> -->
 </head>
 <body>
 <div class="wrapper row3">
@@ -22,17 +22,14 @@
    <table class="table">
     <tr>
      <td width="30%" class="text-center" rowspan="5">
-     	<img src="${vo.goods_poster }" style="width:100%">
+       <img src="${vo.goods_poster }" style="width: 100%">
      </td>
      <td colspan="2">
-		<h4 id="h4">${vo.goods_name }</h4>     
+       <h4 id="h3">${vo.goods_name }</h4>
      </td>
     </tr>
    </table>
   </main>
 </div>
-</head>
-<body>
-
 </body>
 </html>

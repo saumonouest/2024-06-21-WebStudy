@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.vo.*;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sist.commons.CommonsModel;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
 public class DataBoardModel {
@@ -21,6 +22,7 @@ public class DataBoardModel {
   public String databoard_insert(HttpServletRequest request,HttpServletResponse response)
   {
 	  request.setAttribute("main_jsp", "../databoard/insert.jsp");
+	  CommonsModel.footerPrint(request);
 	  return "../main/main.jsp";
   }
   
@@ -93,6 +95,7 @@ public class DataBoardModel {
 	  // new SimpleDateFormat("yyyy-MM-dd").format(new Date())
 	  request.setAttribute("today", today);
 	  request.setAttribute("main_jsp", "../databoard/list.jsp");
+	  CommonsModel.footerPrint(request);
 	  return "../main/main.jsp";
   }
   @RequestMapping("databoard/detail.do")
@@ -103,6 +106,7 @@ public class DataBoardModel {
 	  DataBoardVO vo=DataBoardDAO.databoardDetailData(Integer.parseInt(no));
 	  request.setAttribute("vo", vo);
 	  request.setAttribute("main_jsp", "../databoard/detail.jsp");
+	  CommonsModel.footerPrint(request);
 	  return "../main/main.jsp";
   }
   @RequestMapping("databoard/download.do")
@@ -176,6 +180,7 @@ public class DataBoardModel {
 	  // 데이터를 request에 추가해서 jsp로 전송 
 	  request.setAttribute("vo", vo);
 	  request.setAttribute("main_jsp", "../databoard/update.jsp");
+	  CommonsModel.footerPrint(request);
 	  return "../main/main.jsp";
   }
   @RequestMapping("databoard/password_check.do")
@@ -247,76 +252,58 @@ public class DataBoardModel {
 	  }catch(Exception ex){}
 	  return "redirect:../databoard/list.do";
   }
-  
-	/*
-	 * @RequestMapping("databoard/find.do") 
-	 * public String databoard_find(HttpServletRequest request,HttpServletResponse response) { 
-	 * try{ 
-	 * request.setCharacterEncoding("UTF-8"); 
-	 * }catch(Exception ex) {} 
-	 * String fs=request.getParameter("fs"); 
-	 * String ss=request.getParameter("ss");
-	 * 
-	 * // 데이터베이스 연동 
-	 * Map map= new HashMap(); 
-	 * map.put("ss", ss); 
-	 * map.put("fs", fs);
-	 * 
-	 * // 데이터 전송(결과값) 
-	 * List<DataBoardVO> list = DataBoardDAO.databoardFindData(map);
-	 * request.setAttribute("list", list);
-	 * 
-	 * request.setAttribute("main_jsp", "../databoard/find.do"); 
-	 * return "../main/main.jsp"; 
-	 * }
-	 * 
-	 */
-  
-  @RequestMapping("../databoard/find.do")
-  public String databoard_find(HttpServletRequest request,HttpServletResponse response){
-	  try{ 
+  /*@RequestMapping("databoard/find.do")
+  public String databoard_find(HttpServletRequest request,HttpServletResponse response)
+  {
+	  try
+	  {
 		  request.setCharacterEncoding("UTF-8");
 	  }catch(Exception ex) {}
-	  String[] fsArr =request.getParameterValues("fs");
-	  String ss= request.getParameter("ss");
+	  String fs=request.getParameter("fs");
+	  String ss=request.getParameter("ss");
+	  // 데이터베이스 연동 
 	  Map map=new HashMap();
-	  map.put("fsArr", fsArr);
 	  map.put("ss", ss);
-	  
-	  // 데이터베이스 연동
-	  List<DataBoardVO> list = DataBoardDAO.databoardFindData(map);
-	  
-	  // 결과값 전송
+	  map.put("fs", fs);
+	  // 데이터 전송 (결과값)
+	  List<DataBoardVO> list=DataBoardDAO.databoardFindData(map);
 	  request.setAttribute("list", list);
 	  request.setAttribute("main_jsp", "../databoard/find.jsp");
 	  return "../main/main.jsp";
+  }*/
+  /*
+   *  사용자 요청값 전송 
+   *  ============
+   *   목록 => 페이지 
+   *   상세보기 => 해당 게시물 ,맛집에 대한 고유번호 
+   *   검색 => 검색어 , 페이지 
+   *   로그인 => 아이디, Pwd
+   *   ==================================
+   *   목록 => List
+   *   상세보기 => VO
+   *   검색 => List
+   *   로그인 => String 
+   */
+  @RequestMapping("databoard/find.do")
+  public String databoard_find(HttpServletRequest request,HttpServletResponse response)
+  {
+	  try
+	  {
+		  request.setCharacterEncoding("UTF-8");
+	  }catch(Exception ex) {}
+	  
+	  String[] fsArr=request.getParameterValues("fs");
+	  String ss=request.getParameter("ss");
+	  Map map=new HashMap();
+	  map.put("fsArr", fsArr);
+	  map.put("ss", ss);
+	  // 데이터베이스 연동 
+	  List<DataBoardVO> list=DataBoardDAO.databoardFindData(map);
+	  // 결과값 전송 
+	  request.setAttribute("list", list);
+	  request.setAttribute("main_jsp", "../databoard/find.jsp");
+	  CommonsModel.footerPrint(request);
+	  return "../main/main.jsp";
   }
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
