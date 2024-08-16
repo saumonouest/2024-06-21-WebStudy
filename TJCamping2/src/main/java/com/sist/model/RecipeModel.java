@@ -62,6 +62,25 @@ public class RecipeModel {
 	   return "redirect:../recipe/detail.do?no="+no+"&type="+type;
    }
    
+   @RequestMapping("recipe/detail.do")
+   public String recipe_detail(HttpServletRequest request,HttpServletResponse response)
+   {
+	   //사용자가 보내준 데이터를 받는다 => fno,type(좋아요,찜,댓글)
+	   String no=request.getParameter("no");
+	   String type=request.getParameter("type");
+	   // 서울 종로구 명륜2가 21-14
+	   // 데이터베이스 연동 
+	   RecipeVO vo=RecipeDAO.recipeDetailData(Integer.parseInt(no));
+
+	   request.setAttribute("vo", vo);
+	   request.setAttribute("type", type);
+	   /*
+	    *   맛집(1) / 레시피(2) / 서울 여행(3) / 상품(4)  
+	    *   
+	    */
+	   request.setAttribute("main_jsp", "../recipe/detail.jsp");
+	   return "../main/main.jsp";
+   }
    // 검색 
    // _ok.do => redirect (이전에 존재하는 화면 이동)
    // ajax => void : 자체 파일에서 처리 

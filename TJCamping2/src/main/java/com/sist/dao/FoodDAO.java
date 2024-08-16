@@ -24,7 +24,8 @@ public class FoodDAO {
 			System.out.println("foodHitTopData 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return list;
 	}
@@ -39,7 +40,8 @@ public class FoodDAO {
 			System.out.println("foodLikeTopData 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return list;
 	}
@@ -54,7 +56,8 @@ public class FoodDAO {
 			System.out.println("foodJjimTopData 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return list;
 	}
@@ -68,7 +71,8 @@ public class FoodDAO {
 			System.out.println("foodListCount 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return count;
 	}
@@ -83,7 +87,8 @@ public class FoodDAO {
 			System.out.println("foodListData 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return list;
 	}
@@ -98,7 +103,8 @@ public class FoodDAO {
 			System.out.println("foodTotalPage 오류");
 			ex.printStackTrace();
 		} finally {
-			if(session!=null) session.close();
+			if(session!=null) 
+				session.close();
 		}
 		return total;
 	}
@@ -108,8 +114,10 @@ public class FoodDAO {
 		SqlSession session=null;
 		try {
 			session = ssf.openSession();
+			
+			// 조회수 증가
 			session.update("foodHitIncrement",fno);
-			session.commit();
+			session.commit(); // insert,update,delete
 			
 			// 데이터 읽기
 			vo = session.selectOne("foodDetailData",fno);

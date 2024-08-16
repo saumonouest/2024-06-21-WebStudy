@@ -32,60 +32,50 @@ public class RecipeDAO {
 		  </select>
     */
    // hit가 많은 맛집 
-   public static List<RecipeVO> recipeHitTopData()
-   {
+   public static List<RecipeVO> recipeHitTopData(){
 	   List<RecipeVO> list=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   list=session.selectList("recipeHitTopData");
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeHitTopData 오류");
 		   ex.printStackTrace();
-	   }
-	   finally
-	   {
+	   }finally{
 		   if(session!=null)
 			   session.close();
 	   }
 	   return list;
    }
    // like가 많은 맛집 
-   public static List<RecipeVO> recipeLikeTopData()
-   {
+   public static List<RecipeVO> recipeLikeTopData(){
 	   List<RecipeVO> list=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   list=session.selectList("recipeLikeTopData");
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeLikeTopData 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
 	   return list;
    }
    // jjim이 많은 맛집 
-   public static List<RecipeVO> recipeJjimTopData()
-   {
+   public static List<RecipeVO> recipeJjimTopData(){
 	   List<RecipeVO> list=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   list=session.selectList("recipeJjimTopData");
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeJjimTopData 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
@@ -96,20 +86,17 @@ public class RecipeDAO {
 		    SELECT COUNT(*) FROM project_recipe_house
 		  </select>
     */
-   public static int recipeListCount()
-   {
+   public static int recipeListCount(){
 	   int count=0;
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   count=session.selectOne("recipeListCount");
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeListCount 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
@@ -127,39 +114,33 @@ public class RecipeDAO {
 		    SELECT CEIL(COUNT(*)/20.0) FROM project_recipe_house
 		  </select>
     */
-   public static List<RecipeVO> recipeListData(Map map)
-   {
+   public static List<RecipeVO> recipeListData(Map map){
 	   List<RecipeVO> list=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   list=session.selectList("recipeListData",map);
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeListData 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
 	   return list;
    }
-   public static int recipeTotalPage()
-   {
+   public static int recipeTotalPage(){
 	   int total=0;
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   total=session.selectOne("recipeTotalPage");
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeTotalPage 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
@@ -178,25 +159,23 @@ public class RecipeDAO {
 		    WHERE fno=#{fno}
 		  </select>
     */
-   public static RecipeVO recipeDetailData(int fno)
+   public static RecipeVO recipeDetailData(int no)
    {
 	   RecipeVO vo=new RecipeVO();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   // 조회수 증가 
-		   session.update("recipeHitIncrement",fno);
+		   session.update("recipeHitIncrement",no);
 		   session.commit(); // insert,update,delete
 		   
 		   // 데이터 읽기 
-		   vo=session.selectOne("recipeDetailData",fno);
-	   }catch(Exception ex)
-	   {
+		   vo=session.selectOne("recipeDetailData",no);
+	   }catch(Exception ex){
+		   System.out.println("recipeDetailData 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
@@ -219,31 +198,26 @@ public class RecipeDAO {
    {
 	   List<RecipeVO> list=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   list=session.selectList("recipeFindListData",map);
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
+		   System.out.println("recipeFindListData 오류");
 		   ex.printStackTrace();
 	   }
-	   finally
-	   {
+	   finally{
 		   if(session!=null)
 			   session.close();
 	   }
 	   return list;
    }
-   public static int recipeFindTotalPage(String ss)
-   {
+   public static int recipeFindTotalPage(String ss){
 	   int total=0;
 	   SqlSession session=null;
-	   try
-	   {
+	   try{
 		   session=ssf.openSession();
 		   total=session.selectOne("recipeFindTotalPage",ss);
-	   }catch(Exception ex)
-	   {
+	   }catch(Exception ex){
 		   ex.printStackTrace();
 	   }
 	   finally
@@ -264,25 +238,21 @@ public class RecipeDAO {
 		  </select>
     */
   
-   public static List<RecipeVO> recipeRearListData(String ss)
-   {
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
-	   SqlSession session=null; //Connection
-	   try
-	   {
-		   session=ssf.openSession();
-		   list=session.selectList("recipeRearListData", ss);
-	   }catch(Exception ex)
-	   {
-		   ex.printStackTrace();
-	   }
-	   finally
-	   {
-		   if(session!=null)
-			   session.close();
-	   }
-	   return list;
-   }
+// 인근 맛집 
+	public static List<FoodVO> foodRearListData(String ss){
+		List<FoodVO> list = new ArrayList<FoodVO>();
+		SqlSession session=null; // Connection
+		try {
+			session = ssf.openSession();
+			list=session.selectList("foodRearListData" , ss);
+		} catch (Exception ex) {
+			System.out.println("foodRearListData 오류");
+			ex.printStackTrace();
+		} finally {
+			if(session!=null) session.close(); 
+		}
+		return list;
+	}
    
    
 }

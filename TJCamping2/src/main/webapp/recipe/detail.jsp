@@ -134,7 +134,7 @@ $(function(){
             if(result==="OK"){
                $(this).attr("data-count",1);
                $(this).attr("class",'btn-xs btn-default')
-               location.href="../food/detail.do?fno="+cno+"&type=1"
+               location.href="../recipe/detail.do?no="+cno+"&type=1"
             } else{
                alert(result)
             }
@@ -283,24 +283,24 @@ function replyList(cno)
                </td>
             </tr>
             <tr>
-               <td class="text-right" style="color: gray" width="5%">셰프</td>
+               <th class="text-right" style="color: gray" width="5%">셰프</th>
                <td width="65%">${vo.chef}</td>
-               <img src="${vo.chef_poster }">
+               <!--  <img src="${vo.chef_poster }">-->
             </tr>
             <tr>
-               <td class="text-right" style="color: gray" width="5%">양</td>
+               <th class="text-right" style="color: gray" width="5%">양</th>
                <td width="65%">${vo.info1}</td>
             </tr>
             <tr>
-               <td class="text-right" style="color: gray" width="5%">시간</td>
+               <th class="text-right" style="color: gray" width="5%">시간</th>
                <td width="65%">${vo.info2}</td>
             </tr>
             <tr>
-               <td class="text-right" style="color: gray" width="5%">난이도</td>
+               <th class="text-right" style="color: gray" width="5%">난이도</th>
                <td width="65%">${vo.info3}</td>
             </tr>
             <tr>
-               <td class="text-right" style="color: gray" width="15%">상세 내용</td>
+               <th class="text-right" style="color: gray" width="15%">상세 내용</th>
                <td width="65%">${vo.content }</td>
             </tr>
             <tr>
@@ -313,7 +313,7 @@ function replyList(cno)
                            <li style="margin-right: 10px;">
                               <figure>
                                  <img class="radius-10 btmspace-10"
-                                    src="${poster }"
+                                    src="${vo.poster }"
                                     style="width: 80px; height: 80px;">
                               </figure>
                               
@@ -440,7 +440,7 @@ function replyList(cno)
          <div class="container py-5 ">
          
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Near FoodHouse</h5>
+                    <h5 class="section-title px-3">Near recipeHouse</h5>
                     <h1 class="mb-0">인근 맛집</h1>
                 </div>
       
