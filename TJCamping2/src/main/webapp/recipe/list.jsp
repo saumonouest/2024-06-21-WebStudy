@@ -38,7 +38,7 @@
 <script type="text/javascript"></script>
 <style>
 .bg-breadcrumb {
-    background-image: url('camp_recipe.jpg');
+    background-image: url('recipe.jpg');
     background-size: cover; /* 이미지가 요소를 덮도록 설정 */
     background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
 }
@@ -94,7 +94,7 @@
                         </div>
                         
                         <div class="row">
-                            <c:forEach var="vo" items="${rList }" varStatus="s">
+                            <c:forEach var="vo" items="${reList }" varStatus="s">
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="packages-item">
                                         <div class="packages-img">

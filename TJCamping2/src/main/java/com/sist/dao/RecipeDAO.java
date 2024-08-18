@@ -33,11 +33,11 @@ public class RecipeDAO {
     */
    // hit가 많은 맛집 
    public static List<RecipeVO> recipeHitTopData(){
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
+	   List<RecipeVO> reList=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   list=session.selectList("recipeHitTopData");
+		   reList=session.selectList("recipeHitTopData");
 	   }catch(Exception ex){
 		   System.out.println("recipeHitTopData 오류");
 		   ex.printStackTrace();
@@ -45,15 +45,15 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return list;
+	   return reList;
    }
    // like가 많은 맛집 
    public static List<RecipeVO> recipeLikeTopData(){
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
+	   List<RecipeVO> reList=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   list=session.selectList("recipeLikeTopData");
+		   reList=session.selectList("recipeLikeTopData");
 	   }catch(Exception ex){
 		   System.out.println("recipeLikeTopData 오류");
 		   ex.printStackTrace();
@@ -62,15 +62,15 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return list;
+	   return reList;
    }
    // jjim이 많은 맛집 
    public static List<RecipeVO> recipeJjimTopData(){
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
+	   List<RecipeVO> reList=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   list=session.selectList("recipeJjimTopData");
+		   reList=session.selectList("recipeJjimTopData");
 	   }catch(Exception ex){
 		   System.out.println("recipeJjimTopData 오류");
 		   ex.printStackTrace();
@@ -79,7 +79,7 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return list;
+	   return reList;
    }
    /*
     *   <select id="recipeListCount" resultType="int">
@@ -115,11 +115,11 @@ public class RecipeDAO {
 		  </select>
     */
    public static List<RecipeVO> recipeListData(Map map){
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
+	   List<RecipeVO> reList=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   list=session.selectList("recipeListData",map);
+		   reList=session.selectList("recipeListData",map);
 	   }catch(Exception ex){
 		   System.out.println("recipeListData 오류");
 		   ex.printStackTrace();
@@ -128,7 +128,7 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return list;
+	   return reList;
    }
    public static int recipeTotalPage(){
 	   int total=0;
@@ -161,7 +161,7 @@ public class RecipeDAO {
     */
    public static RecipeVO recipeDetailData(int no)
    {
-	   RecipeVO vo=new RecipeVO();
+	   RecipeVO revo=new RecipeVO();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
@@ -170,7 +170,7 @@ public class RecipeDAO {
 		   session.commit(); // insert,update,delete
 		   
 		   // 데이터 읽기 
-		   vo=session.selectOne("recipeDetailData",no);
+		   revo=session.selectOne("recipeDetailData",no);
 	   }catch(Exception ex){
 		   System.out.println("recipeDetailData 오류");
 		   ex.printStackTrace();
@@ -179,7 +179,7 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return vo;
+	   return revo;
    }
    /*
     *    <select id="recipeFindListData" resultType="RecipeVO" parameterType="hashmap">
@@ -196,11 +196,11 @@ public class RecipeDAO {
     */
    public static List<RecipeVO> recipeFindListData(Map map)
    {
-	   List<RecipeVO> list=new ArrayList<RecipeVO>();
+	   List<RecipeVO> reList=new ArrayList<RecipeVO>();
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   list=session.selectList("recipeFindListData",map);
+		   reList=session.selectList("recipeFindListData",map);
 	   }catch(Exception ex){
 		   System.out.println("recipeFindListData 오류");
 		   ex.printStackTrace();
@@ -209,14 +209,14 @@ public class RecipeDAO {
 		   if(session!=null)
 			   session.close();
 	   }
-	   return list;
+	   return reList;
    }
-   public static int recipeFindTotalPage(String ss){
+   public static int recipeFindTotalPage(String ress){
 	   int total=0;
 	   SqlSession session=null;
 	   try{
 		   session=ssf.openSession();
-		   total=session.selectOne("recipeFindTotalPage",ss);
+		   total=session.selectOne("recipeFindTotalPage",ress);
 	   }catch(Exception ex){
 		   ex.printStackTrace();
 	   }
@@ -238,20 +238,20 @@ public class RecipeDAO {
 		  </select>
     */
   
-// 인근 맛집 
-	public static List<FoodVO> foodRearListData(String ss){
-		List<FoodVO> list = new ArrayList<FoodVO>();
+// 같은 셰프 레시피 출력
+	public static List<RecipeVO> chefRecipeData(String ress){
+		List<RecipeVO> reList = new ArrayList<RecipeVO>();
 		SqlSession session=null; // Connection
 		try {
 			session = ssf.openSession();
-			list=session.selectList("foodRearListData" , ss);
+			reList=session.selectList("chefRecipeData" , ress);
 		} catch (Exception ex) {
-			System.out.println("foodRearListData 오류");
+			System.out.println("chefRecipeData 오류");
 			ex.printStackTrace();
 		} finally {
 			if(session!=null) session.close(); 
 		}
-		return list;
+		return reList;
 	}
    
    

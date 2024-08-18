@@ -23,7 +23,7 @@ public class MainModel {
 				}
 			}
 		}
-		
+
 		List<FoodVO> hitList = FoodDAO.foodHitTopData();
 		List<FoodVO> likeList = FoodDAO.foodLikeTopData();
 		List<FoodVO> jjimList = FoodDAO.foodJjimTopData();
@@ -33,7 +33,10 @@ public class MainModel {
 		request.setAttribute("likeList", likeList);
 		request.setAttribute("jjimList", jjimList);
 		
+		
+		
 		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
+
 }
