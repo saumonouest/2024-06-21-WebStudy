@@ -331,16 +331,15 @@ function replyList(cno)
 		</div>
 
 		<tr>
-			<td colspan="3" class="text-right"><c:if
-					test="${sessionScope.id!=null }">
+			<td colspan="3" class="text-right">
+			<c:if test="${sessionScope.id!=null }">
 					<a href="#" class="btn btn-xs btn-success">좋아요</a>
-					<c:if test="${check==false }">
-						<input type=button class="btn btn-xs btn-success" value="찜하기"
-							id="jjimBtn" data-cno="${revo.no }">
-					</c:if>
-					<c:if test="${check==true }">
-						<span class="btn btn-xs btn-default">찜하기</span>
-					</c:if>
+			<c:if test="${check==false }">
+					<input type=button class="btn btn-xs btn-success" value="찜하기" id="jjimBtn" data-cno="${revo.no }">
+			</c:if>
+			<c:if test="${check==true }">
+					<span class="btn btn-xs btn-default">찜하기</span>
+			</c:if>
 					<a href="#" class="btn btn-xs btn-success">예약하기</a>
 				</c:if> <input type="button" class="btn btn-xs btn-success" value="목록"
 				onclick="javascript:history.back()"></td>

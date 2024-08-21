@@ -28,6 +28,11 @@ public class MainModel {
 		List<FoodVO> likeList = FoodDAO.foodLikeTopData();
 		List<FoodVO> jjimList = FoodDAO.foodJjimTopData();
 		
+		List<RecipeVO> relikelist = RecipeDAO.recipeLikeTopData();
+		
+		request.setAttribute("relikelist", relikelist);
+		
+		
 		request.setAttribute("cookieList", cookieList);
 		request.setAttribute("hitList", hitList);
 		request.setAttribute("likeList", likeList);

@@ -857,56 +857,122 @@
 	</div>
 	<!-- 맛집 추천 End -->
 	
-	
+
 	<!-- 레시피 Start -->
-	<div class="container-fluid destination py-5">
+	<div class="container-fluid packages py-5">
 		<div class="container py-5">
 			<div class="mx-auto text-center mb-5" style="max-width: 900px;">
 				<h5 class="section-title px-3">Recipe</h5>
 				<h1 class="mb-0">레시피</h1>
 			</div>
+			<!-- <div class="packages-carousel owl-carousel"></div>  돌아가게 하는 거임 -->
 			<div class="tab-class text-center">
 				<ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active"
-						data-bs-toggle="pill" href="#tab-1"> <span class="text-dark"
-							style="width: 150px;">전체</span>
+				
+					<li class="nav-item">
+					<a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active"
+						data-bs-toggle="pill" href="#tab-1"> 
+						<span class="text-dark" style="width: 150px;">전체</span>
 					</a></li>
-					<li class="nav-item"><a
-						class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-2"> <span class="text-dark"
-							style="width: 150px;">1인분</span>
+					
+					<li class="nav-item">
+					<a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill"
+						data-bs-toggle="pill" href="#tab-2"> 
+						<span class="text-dark" style="width: 150px;">1인분</span>
 					</a></li>
+					
+					<li class="nav-item">
+					<a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
+						data-bs-toggle="pill" href="#tab-3"> 
+						<span class="text-dark" style="width: 150px;">2인분</span>
+					</a></li>
+					
 					<li class="nav-item"><a
 						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-3"> <span class="text-dark"
-							style="width: 150px;">2인분</span>
+						data-bs-toggle="pill" href="#tab-4">
+						<span class="text-dark" style="width: 150px;">3인분</span>
 					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-4"> <span class="text-dark"
-							style="width: 150px;">3인분</span>
+					
+					<li class="nav-item">
+					<a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
+						data-bs-toggle="pill" href="#tab-5"> 
+						<span class="text-dark" style="width: 150px;">4인분</span>
 					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-5"> <span class="text-dark"
-							style="width: 150px;">4인분</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-6"> <span class="text-dark"
-							style="width: 150px;">5인분</span>
+					
+					<li class="nav-item">
+					<a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
+						data-bs-toggle="pill" href="#tab-6"> 
+						<span class="text-dark" style="width: 150px;">5인분</span>
 					</a></li>
 				</ul>
-        <div class="packages-carousel owl-carousel">
-            <c:forEach var="revo" items="${reList}" varStatus="s">
-                <div class="packages-item">
-                    <div class="packages-img">
+				
+				
+				
+				</div>
+
+
+					  <!-- Blog Start -->
+			<div class="row g-4 justify-content-center">
+    <c:forEach var="revo" items="${relikelist}" varStatus="s">
+        <div class="col-lg-4 col-md-6">
+            <div class="blog-item border rounded shadow-sm overflow-hidden" style="max-width:100%; height: 100%;">
+                <div class="blog-img position-relative" style="width: 100%; height: 270px;">
+                    <a href="../recipe/detail_before.do?no=${revo.no}&type=3" class="h4"><img class="img-fluid w-100 h-100 object-fit-cover rounded-top" src="${revo.poster }" alt="Image"></a>
+                    <!-- 링크 아이콘: 호버 시에만 표시 -->
+                    <div class="blog-icon position-absolute top-50 start-50 translate-middle" style="opacity: 0; transition: opacity 0.3s;">
+                        <a href="#"><i class="fas fa-link fa-2x text-white"></i></a>
+                    </div>
+                </div>
+                <div class="blog-info d-flex justify-content-between align-items-center border border-start-0 border-end-0 p-3" >
+                    <div class="text-center" style="margin-left:40px">
+                        <img src="amount.png" style="width: 30px; height: auto;">
+                        <div>${revo.info1}</div>
+                    </div>
+                    <div class="text-center">
+                        <img src="time.png" style="width: 30px; height: auto;">
+                        <div>${revo.info2}</div>
+                    </div>
+                    <div class="text-center" style="margin-right:40px">
+                        <img src="star.png" style="width: 30px; height: auto;">
+                        <div>${revo.info3}</div>
+                    </div>
+                </div>
+                <div class="blog-content border-top-0 rounded-bottom p-4">
+                    <p class="mb-3">${revo.chef}</p>
+                    <a href="../recipe/detail_before.do?no=${revo.no}&type=3" class="h4">${revo.title}</a>
+                    <p class="my-3" style=" white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${revo.content}</p>
+                    <a href="#" class="btn btn-primary d-block text-center"><i class="fa fa-heart me-2"></i>찜하기</a>
+                    
+                    <c:if test="${check==false }">
+						<input type=button class="btn btn-xs btn-success" value="찜하기"
+							id="jjimBtn" data-cno="${revo.no }">
+					</c:if>
+					<c:if test="${check==true }">
+						<span class="btn btn-xs btn-default">찜하기</span>
+					</c:if>
+                    
+                </div>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
+
+
+				</div>
+        <!-- Blog End -->
+        
+        <!-- 
+
+        
+            <c:forEach var="revo" items="${relikelist}" varStatus="s">
+                <div class="packages-item" style="max-width:100%; overflow:hidden" >
+                    <div class="packages-img" style="width:100%; height:270px; overflow:hidden;">
                         <img src="${revo.poster}" class="img-fluid w-100 rounded-top" alt="Image">
                         <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute"
                              style="width: 100%; bottom: 0; left: 0; z-index: 5;">
                             <a href="#" class="flex-fill text-center border-end py-2 text-decoration-none"
-                               style="color: #ffffff;"> <!-- 찜하기 버튼 -->
+                               style="color: #ffffff;"> <!-- 찜하기 버튼
                                 <i class="fa fa-heart me-2"></i>찜하기
                             </a>
                         </div>
@@ -920,10 +986,10 @@
                         </div>
                         <div class="row bg-primary rounded-bottom mx-0">
                             <div class="col-6 text-start px-0">
-                                <a href="#" class="btn-hover btn text-white py-2 px-4">${revo.chef}</a>
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">${revo.info1}</a>
                             </div>
                             <div class="col-6 text-end px-0">
-                                <a href="#" class="btn-hover btn text-white py-2 px-4">${revo.no}</a>
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">${revo.info2}</a>
                             </div>
                         </div>
                     </div>
@@ -931,8 +997,7 @@
             </c:forEach>
         </div>
 	</div>
-	</div>
-	</div>
+         -->
 	<!-- 레시피 End -->
 
 

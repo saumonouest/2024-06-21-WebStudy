@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,7 +35,7 @@
 	      <li class="list-group-item"><a href="#">찜관리</a></li>
 	      <li class="list-group-item"><a href="#">좋아요관리</a></li>
 	      <li class="list-group-item"><a href="#">장바구니관리</a></li>
-	      <li class="list-group-item"><a href="#">예약관리</a></li>
+	      <li class="list-group-item"><a href="../mypage/mypage_reserve.do">예약관리</a></li>
 	    </ul>
 	   </div>
    </div>

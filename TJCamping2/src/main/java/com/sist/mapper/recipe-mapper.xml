@@ -8,9 +8,9 @@
 		WHERE rownum &lt;=12
 	</select> 
 	<select id="recipeLikeTopData" resultType="RecipeVO">
-		SELECT no , title , poster , rownum 
-		FROM (SELECT no , title , poster 
-				  FROM recipedetail ORDER BY likecount DESC )
+		SELECT no, poster, title, chef, info1, info2, info3, content, rownum 
+		FROM (SELECT no, poster, title, chef, info1, info2, info3, content
+		FROM recipedetail ORDER BY likecount DESC )
 		WHERE rownum &lt;=9
 	</select>
 	<select id="recipeJjimTopData" resultType="RecipeVO">
