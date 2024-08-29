@@ -25,7 +25,6 @@
      <typeAlias type="com.sist.vo.RecipeDetailVO" alias="RecipeDetailVO"/>
      <typeAlias type="com.sist.vo.ChefVO" alias="ChefVO"/>
      <typeAlias type="com.sist.vo.CartVO" alias="CartVO"/>
-     
    </typeAliases>
    <!-- connection관련 : getConnection/disConnection -->
     <environments default="development">

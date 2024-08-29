@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.sist.commons.CommonsModel;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
+import com.sist.manager.MailManager;
 import com.sist.vo.*;
 public class MemberModel {
   @RequestMapping("member/login.do")
@@ -25,6 +26,10 @@ public class MemberModel {
 		  session.setAttribute("id", vo.getId());
 		  session.setAttribute("name", vo.getName());
 		  session.setAttribute("admin", vo.getAdmin());
+		  session.setAttribute("phone", vo.getPhone());
+		  session.setAttribute("address", vo.getAddr1());
+		  session.setAttribute("email", vo.getEmail());
+		  session.setAttribute("post", vo.getPost());
 	  }
 	  // ajax로 전송 
 	  try
@@ -121,5 +126,56 @@ public class MemberModel {
 	  vo.setPhone(phone1+")"+phone2);
 	  MemberDAO.memberInsert(vo);
 	  return "redirect:../main/main.do";
+  }
+  @RequestMapping("member/idfind.do")
+  public String member_idfind(HttpServletRequest request,HttpServletResponse response)
+  {
+	  request.setAttribute("main_jsp", "../member/idfind.jsp");
+	  return "../main/main.jsp";
+  }
+  @RequestMapping("member/idcheck_ok.do")
+  public void member_idfind_ok(HttpServletRequest request,HttpServletResponse response)
+  {
+	  try
+	  {
+		  request.setCharacterEncoding("UTF-8");
+	  }catch(Exception ex){}
+	  String name=request.getParameter("name");
+	  String email=request.getParameter("email");
+	  
+	  MemberVO vo=new MemberVO();
+	  vo.setName(name);
+	  vo.setEmail(email);
+	  // 데이터베이스 연동 
+	  String result=MemberDAO.memberIdFindData(vo);
+	  // Ajax로 값 전송 
+	  try
+	  {
+		  PrintWriter out=response.getWriter();
+		  out.write(result);
+	  }catch(Exception ex) {}
+  }
+  @RequestMapping("member/pwdfind.do")
+  public String member_pwdfind(HttpServletRequest request,HttpServletResponse response)
+  {
+	  request.setAttribute("main_jsp", "../member/pwdfind.jsp");
+	  return "../main/main.jsp";
+  }
+  @RequestMapping("member/pwdfind_ok.do")
+  public void member_pwdfind_ok(HttpServletRequest request,HttpServletResponse response)
+  {
+	  String id=request.getParameter("id");
+	  String result=MemberDAO.memberPwdFindData(id);
+	  if(!result.equals("no"))
+	  {
+		  MailManager m=new MailManager();
+		  m.mailSender(result);
+	  }
+	  
+	  try
+	  {
+		  PrintWriter out=response.getWriter();
+		  out.write(result);
+	  }catch(Exception ex) {}
   }
 }

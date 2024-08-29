@@ -20,7 +20,7 @@ public class MainClass {
 
     public static void main(String[] args) {
         try {
-            for (int i = 1360; i <= 2000; i++) {
+            for (int i = 1870; i <= 2000; i++) {
                 Document doc = Jsoup.connect("https://ottogi.okitchen.co.kr/category/detail?page=1&searchCateFirst=1&searchCateSecond=2&sort=&idx=" + i).get();//https://ottogi.okitchen.co.kr/category/detail?idx=;
 
                 // container detailTop에 있는 이미지와 이름 가져오기

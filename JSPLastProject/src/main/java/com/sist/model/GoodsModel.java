@@ -68,23 +68,3 @@ public class GoodsModel {
 	  return "../main/main.jsp";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
